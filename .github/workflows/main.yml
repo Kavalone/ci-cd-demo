@@ -9,15 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Клонируем репозиторий
     - uses: actions/checkout@v3
 
+    # Устанавливаем Node.js
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
+    # Устанавливаем зависимости
     - name: Install dependencies
       run: npm install
 
+    # Запускаем тесты через npx, чтобы использовать локальный jest
     - name: Run tests
       run: npx jest
